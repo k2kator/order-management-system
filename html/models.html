@@ -1,0 +1,621 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>models module &mdash; документация Python </title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=372fde1a"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=29b1f277"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="db module" href="db.html" />
+    <link rel="prev" title="gui module" href="gui.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Модули</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="gui.html">gui module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#models.BaseModel"><code class="docutils literal notranslate"><span class="pre">BaseModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#models.BaseModel.filename"><code class="docutils literal notranslate"><span class="pre">BaseModel.filename</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.BaseModel.fieldnames"><code class="docutils literal notranslate"><span class="pre">BaseModel.fieldnames</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.BaseModel.data"><code class="docutils literal notranslate"><span class="pre">BaseModel.data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.BaseModel.selected_product_in_table"><code class="docutils literal notranslate"><span class="pre">BaseModel.selected_product_in_table</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.BaseModel.selected_customer_in_table"><code class="docutils literal notranslate"><span class="pre">BaseModel.selected_customer_in_table</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.BaseModel.add_item"><code class="docutils literal notranslate"><span class="pre">BaseModel.add_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.BaseModel.delete_item"><code class="docutils literal notranslate"><span class="pre">BaseModel.delete_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.BaseModel.find_by_id"><code class="docutils literal notranslate"><span class="pre">BaseModel.find_by_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.BaseModel.get_all"><code class="docutils literal notranslate"><span class="pre">BaseModel.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.BaseModel.get_next_id"><code class="docutils literal notranslate"><span class="pre">BaseModel.get_next_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.BaseModel.load_data"><code class="docutils literal notranslate"><span class="pre">BaseModel.load_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.BaseModel.save_data"><code class="docutils literal notranslate"><span class="pre">BaseModel.save_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.BaseModel.validate"><code class="docutils literal notranslate"><span class="pre">BaseModel.validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#models.CustomerModel"><code class="docutils literal notranslate"><span class="pre">CustomerModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#models.CustomerModel.search"><code class="docutils literal notranslate"><span class="pre">CustomerModel.search()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.CustomerModel.validate"><code class="docutils literal notranslate"><span class="pre">CustomerModel.validate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.CustomerModel.validate_email"><code class="docutils literal notranslate"><span class="pre">CustomerModel.validate_email()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.CustomerModel.validate_phone"><code class="docutils literal notranslate"><span class="pre">CustomerModel.validate_phone()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#models.OrderItemsModel"><code class="docutils literal notranslate"><span class="pre">OrderItemsModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#models.OrderItemsModel.get_items_by_order"><code class="docutils literal notranslate"><span class="pre">OrderItemsModel.get_items_by_order()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.OrderItemsModel.validate"><code class="docutils literal notranslate"><span class="pre">OrderItemsModel.validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#models.OrderModel"><code class="docutils literal notranslate"><span class="pre">OrderModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#models.OrderModel.create_order"><code class="docutils literal notranslate"><span class="pre">OrderModel.create_order()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.OrderModel.get_order_items"><code class="docutils literal notranslate"><span class="pre">OrderModel.get_order_items()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.OrderModel.sort_orders"><code class="docutils literal notranslate"><span class="pre">OrderModel.sort_orders()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.OrderModel.validate"><code class="docutils literal notranslate"><span class="pre">OrderModel.validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#models.ProductModel"><code class="docutils literal notranslate"><span class="pre">ProductModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#models.ProductModel.search"><code class="docutils literal notranslate"><span class="pre">ProductModel.search()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.ProductModel.validate"><code class="docutils literal notranslate"><span class="pre">ProductModel.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="db.html">db module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html">analysis module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Установка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Использование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Модули</a></li>
+      <li class="breadcrumb-item active">models module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/models.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-models">
+<span id="id1"></span><span id="models-module"></span><h1>models module<a class="headerlink" href="#module-models" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="models.BaseModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.</span></span><span class="sig-name descname"><span class="pre">BaseModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fieldnames</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#BaseModel"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.BaseModel" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Базовый абстрактный класс для всех моделей данных.</p>
+<p>Предоставляет общую функциональность для работы с CSV файлами:
+загрузка, сохранение, добавление, удаление и поиск элементов.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.BaseModel.filename">
+<span class="sig-name descname"><span class="pre">filename</span></span><a class="headerlink" href="#models.BaseModel.filename" title="Link to this definition"></a></dt>
+<dd><p>Имя CSV файла для хранения данных</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.BaseModel.fieldnames">
+<span class="sig-name descname"><span class="pre">fieldnames</span></span><a class="headerlink" href="#models.BaseModel.fieldnames" title="Link to this definition"></a></dt>
+<dd><p>Заголовки столбцов CSV файла</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.BaseModel.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#models.BaseModel.data" title="Link to this definition"></a></dt>
+<dd><p>Список словарей для хранения данных в памяти</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.BaseModel.selected_product_in_table">
+<span class="sig-name descname"><span class="pre">selected_product_in_table</span></span><a class="headerlink" href="#models.BaseModel.selected_product_in_table" title="Link to this definition"></a></dt>
+<dd><p>Переменная для отслеживания выбранного товара в UI таблице</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.BaseModel.selected_customer_in_table">
+<span class="sig-name descname"><span class="pre">selected_customer_in_table</span></span><a class="headerlink" href="#models.BaseModel.selected_customer_in_table" title="Link to this definition"></a></dt>
+<dd><p>Переменная для отслеживания выбранного клиента в UI таблице</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.BaseModel.add_item">
+<span class="sig-name descname"><span class="pre">add_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#BaseModel.add_item"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.BaseModel.add_item" title="Link to this definition"></a></dt>
+<dd><p>Добавление нового элемента с автоматической генерацией ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> (<em>dict</em>) – Словарь с данными элемента для добавления</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>True если элемент успешно добавлен и сохранен, False при ошибке</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.BaseModel.delete_item">
+<span class="sig-name descname"><span class="pre">delete_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#BaseModel.delete_item"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.BaseModel.delete_item" title="Link to this definition"></a></dt>
+<dd><p>Удаление элемента по ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_id</strong> (<em>str</em><em> or </em><em>int</em>) – Идентификатор элемента для удаления</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>True если элемент успешно удален и сохранен, False при ошибке</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.BaseModel.find_by_id">
+<span class="sig-name descname"><span class="pre">find_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#BaseModel.find_by_id"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.BaseModel.find_by_id" title="Link to this definition"></a></dt>
+<dd><p>Поиск элемента по ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_id</strong> (<em>str</em><em> or </em><em>int</em>) – Идентификатор элемента для поиска</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Найденный элемент или None если не найден</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.BaseModel.get_all">
+<span class="sig-name descname"><span class="pre">get_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#BaseModel.get_all"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.BaseModel.get_all" title="Link to this definition"></a></dt>
+<dd><p>Получение всех элементов модели.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Результат<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Все данные модели в виде списка словарей</p>
+</dd>
+<dt class="field-even">Тип результата<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.BaseModel.get_next_id">
+<span class="sig-name descname"><span class="pre">get_next_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#BaseModel.get_next_id"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.BaseModel.get_next_id" title="Link to this definition"></a></dt>
+<dd><p>Генерация следующего уникального идентификатора.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Результат<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Следующий доступный ID в виде строки</p>
+</dd>
+<dt class="field-even">Тип результата<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.BaseModel.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#BaseModel.load_data"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.BaseModel.load_data" title="Link to this definition"></a></dt>
+<dd><p>Загрузка данных из CSV файла с поддержкой разных кодировок.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Результат<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Загруженные данные в виде списка словарей</p>
+</dd>
+<dt class="field-even">Тип результата<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of dict</p>
+</dd>
+</dl>
+<p class="rubric">Заметки</p>
+<p>Автоматически определяет кодировку файла (UTF-8 или Windows-1251).
+Если файл не существует, возвращает пустой список.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.BaseModel.save_data">
+<span class="sig-name descname"><span class="pre">save_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#BaseModel.save_data"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.BaseModel.save_data" title="Link to this definition"></a></dt>
+<dd><p>Сохранение данных в CSV файл в кодировке UTF-8.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Результат<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True если сохранение успешно, False при ошибке</p>
+</dd>
+<dt class="field-even">Тип результата<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.BaseModel.validate">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#BaseModel.validate"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.BaseModel.validate" title="Link to this definition"></a></dt>
+<dd><p>Абстрактный метод для валидации данных элемента.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> (<em>dict</em>) – Словарь с данными элемента для валидации</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>True если данные валидны, False в противном случае</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Заметки</p>
+<p>Должен быть реализован в дочерних классах.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="models.CustomerModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.</span></span><span class="sig-name descname"><span class="pre">CustomerModel</span></span><a class="reference internal" href="_modules/models.html#CustomerModel"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.CustomerModel" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <a class="reference internal" href="#models.BaseModel" title="models.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<p>Модель для работы с данными покупателей.</p>
+<p>Наследует от BaseModel и добавляет специфичную для покупателей
+валидацию и функциональность поиска.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="models.CustomerModel.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#CustomerModel.search"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.CustomerModel.search" title="Link to this definition"></a></dt>
+<dd><p>Поиск покупателей по всем текстовым полям.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>search_text</strong> (<em>str</em>) – Текст для поиска (регистронезависимый)</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Список найденных покупателей, соответствующих критерию поиска</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of dict</p>
+</dd>
+</dl>
+<p class="rubric">Заметки</p>
+<p>Ищет по всем текстовым полям: фамилия, имя, отчество, телефон, email</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.CustomerModel.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">customer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#CustomerModel.validate"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.CustomerModel.validate" title="Link to this definition"></a></dt>
+<dd><p>Валидация данных покупателя.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>customer</strong> (<em>dict</em>) – Словарь с данными покупателя</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>True если данные валидны, False в противном случае</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Исключение<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Shows messagebox with validation errors</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.CustomerModel.validate_email">
+<span class="sig-name descname"><span class="pre">validate_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#CustomerModel.validate_email"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.CustomerModel.validate_email" title="Link to this definition"></a></dt>
+<dd><p>Валидация email адреса с помощью регулярного выражения.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>email</strong> (<em>str</em>) – Email адрес для валидации</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>True если email соответствует формату, False в противном случае</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.CustomerModel.validate_phone">
+<span class="sig-name descname"><span class="pre">validate_phone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phone</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#CustomerModel.validate_phone"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.CustomerModel.validate_phone" title="Link to this definition"></a></dt>
+<dd><p>Валидация номера телефона с помощью регулярного выражения.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>phone</strong> (<em>str</em>) – Номер телефона для валидации</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>True если номер телефона соответствует формату, False в противном случае</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Заметки</p>
+<p>Поддерживает форматы: +7(999)123-45-67, 89991234567, +7 999 123 45 67</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="models.OrderItemsModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.</span></span><span class="sig-name descname"><span class="pre">OrderItemsModel</span></span><a class="reference internal" href="_modules/models.html#OrderItemsModel"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.OrderItemsModel" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <a class="reference internal" href="#models.BaseModel" title="models.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<p>Модель для работы с товарами в заказах.</p>
+<p>Наследует от BaseModel и добавляет специфичную для товаров заказов
+функциональность.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="models.OrderItemsModel.get_items_by_order">
+<span class="sig-name descname"><span class="pre">get_items_by_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#OrderItemsModel.get_items_by_order"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.OrderItemsModel.get_items_by_order" title="Link to this definition"></a></dt>
+<dd><p>Получение всех товаров для конкретного заказа.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>order_id</strong> (<em>str</em>) – ID заказа</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Список товаров в указанном заказе</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.OrderItemsModel.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#OrderItemsModel.validate"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.OrderItemsModel.validate" title="Link to this definition"></a></dt>
+<dd><p>Валидация данных товара заказа.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> (<em>dict</em>) – Словарь с данными товара заказа</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>True если данные валидны, False в противном случае</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Исключение<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Shows messagebox with validation errors</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="models.OrderModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.</span></span><span class="sig-name descname"><span class="pre">OrderModel</span></span><a class="reference internal" href="_modules/models.html#OrderModel"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.OrderModel" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <a class="reference internal" href="#models.BaseModel" title="models.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<p>Модель для работы с заказами.</p>
+<p>Наследует от BaseModel и добавляет функциональность для работы
+с товарами заказов и сортировкой.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="models.OrderModel.create_order">
+<span class="sig-name descname"><span class="pre">create_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">customer_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customer_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order_items</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#OrderModel.create_order"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.OrderModel.create_order" title="Link to this definition"></a></dt>
+<dd><p>Создание нового заказа с привязкой товаров.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>customer_id</strong> (<em>str</em>) – ID покупателя</p></li>
+<li><p><strong>total_amount</strong> (<em>float</em>) – Общая сумма заказа</p></li>
+<li><p><strong>customer_info</strong> (<em>str</em>) – Информация о покупателе</p></li>
+<li><p><strong>order_items</strong> (<em>list</em><em> of </em><em>dict</em>) – Список товаров в заказе</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>True если заказ успешно создан, False при ошибке</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.OrderModel.get_order_items">
+<span class="sig-name descname"><span class="pre">get_order_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#OrderModel.get_order_items"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.OrderModel.get_order_items" title="Link to this definition"></a></dt>
+<dd><p>Получение всех товаров для конкретного заказа.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>order_id</strong> (<em>str</em>) – ID заказа</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Список товаров в указанном заказе</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.OrderModel.sort_orders">
+<span class="sig-name descname"><span class="pre">sort_orders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort_by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'date'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascending</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#OrderModel.sort_orders"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.OrderModel.sort_orders" title="Link to this definition"></a></dt>
+<dd><p>Сортировка заказов по различным критериям.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sort_by</strong> (<em>{'date'</em><em>, </em><em>'amount'</em><em>, </em><em>'id'}</em><em>, </em><em>optional</em>) – Критерий сортировки (по умолчанию „date“)</p></li>
+<li><p><strong>ascending</strong> (<em>bool</em><em>, </em><em>optional</em>) – Направление сортировки (по умолчанию True - по возрастанию)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Отсортированный список заказов</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of dict</p>
+</dd>
+</dl>
+<p class="rubric">Заметки</p>
+<p>Использует алгоритм быстрой сортировки (quick sort)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.OrderModel.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#OrderModel.validate"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.OrderModel.validate" title="Link to this definition"></a></dt>
+<dd><p>Валидация данных заказа.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>order</strong> (<em>dict</em>) – Словарь с данными заказа</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>True если данные валидны, False в противном случае</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Исключение<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Shows messagebox with validation errors</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="models.ProductModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.</span></span><span class="sig-name descname"><span class="pre">ProductModel</span></span><a class="reference internal" href="_modules/models.html#ProductModel"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.ProductModel" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <a class="reference internal" href="#models.BaseModel" title="models.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<p>Модель для работы с данными товаров.</p>
+<p>Наследует от BaseModel и добавляет специфичную для товаров
+валидацию и функциональность поиска.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="models.ProductModel.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#ProductModel.search"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.ProductModel.search" title="Link to this definition"></a></dt>
+<dd><p>Поиск товаров по названию и единицам измерения.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>search_text</strong> (<em>str</em>) – Текст для поиска (регистронезависимый)</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Список найденных товаров, соответствующих критерию поиска</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.ProductModel.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">product</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#ProductModel.validate"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#models.ProductModel.validate" title="Link to this definition"></a></dt>
+<dd><p>Валидация данных товара.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>product</strong> (<em>dict</em>) – Словарь с данными товара</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>True если данные валидны, False в противном случае</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Исключение<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Shows messagebox with validation errors</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="gui.html" class="btn btn-neutral float-left" title="gui module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="db.html" class="btn btn-neutral float-right" title="db module" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права . </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

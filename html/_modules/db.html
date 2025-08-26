@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>db &mdash; документация Python </title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=372fde1a"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=29b1f277"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Модули</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Установка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Использование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Код модуля</a></li>
+      <li class="breadcrumb-item active">db</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Исходный код db</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">CustomerModel</span><span class="p">,</span> <span class="n">ProductModel</span><span class="p">,</span> <span class="n">OrderModel</span>
+
+
+<div class="viewcode-block" id="DatabaseManager">
+<a class="viewcode-back" href="../db.html#db.DatabaseManager">[документация]</a>
+<span class="k">class</span> <span class="nc">DatabaseManager</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Менеджер базы данных для работы с CSV и JSON файлами.</span>
+<span class="sd">    </span>
+<span class="sd">    Обеспечивает импорт/экспорт данных, а также создание необходимых файлов</span>
+<span class="sd">    для хранения информации о клиентах, товарах и заказах.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    customer_model : CustomerModel</span>
+<span class="sd">        Модель данных клиентов</span>
+<span class="sd">    product_model : ProductModel</span>
+<span class="sd">        Модель данных товаров  </span>
+<span class="sd">    order_model : OrderModel</span>
+<span class="sd">        Модель данных заказов</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Инициализация менеджера базы данных.</span>
+<span class="sd">        </span>
+<span class="sd">        Создает экземпляры моделей данных для работы с клиентами,</span>
+<span class="sd">        товарами и заказами.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">customer_model</span> <span class="o">=</span> <span class="n">CustomerModel</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">product_model</span> <span class="o">=</span> <span class="n">ProductModel</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">order_model</span> <span class="o">=</span> <span class="n">OrderModel</span><span class="p">()</span>
+    
+<div class="viewcode-block" id="DatabaseManager.create_files_if_not_exist">
+<a class="viewcode-back" href="../db.html#db.DatabaseManager.create_files_if_not_exist">[документация]</a>
+    <span class="k">def</span> <span class="nf">create_files_if_not_exist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Создает необходимые файлы CSV, если они не существуют.</span>
+<span class="sd">        </span>
+<span class="sd">        Проверяет наличие файлов customers.csv, products.csv, orders.csv</span>
+<span class="sd">        и order_items.csv. Если какой-либо файл отсутствует, вызывает</span>
+<span class="sd">        метод save_data соответствующей модели для создания файла</span>
+<span class="sd">        с заголовками колонок.</span>
+<span class="sd">        </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Метод должен вызываться при инициализации приложения для</span>
+<span class="sd">        обеспечения наличия всех необходимых файлов данных.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;customers.csv&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">customer_model</span><span class="o">.</span><span class="n">save_data</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;products.csv&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">product_model</span><span class="o">.</span><span class="n">save_data</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;orders.csv&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">order_model</span><span class="o">.</span><span class="n">save_data</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;order_items.csv&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">order_model</span><span class="o">.</span><span class="n">order_items_model</span><span class="o">.</span><span class="n">save_data</span><span class="p">()</span></div>
+
+    
+<div class="viewcode-block" id="DatabaseManager.export_to_csv">
+<a class="viewcode-back" href="../db.html#db.DatabaseManager.export_to_csv">[документация]</a>
+    <span class="k">def</span> <span class="nf">export_to_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">fieldnames</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Экспортирует данные в CSV файл.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data : list of dict</span>
+<span class="sd">            Список словарей с данными для экспорта. Каждый словарь представляет</span>
+<span class="sd">            одну строку данных, где ключи соответствуют названиям колонок.</span>
+<span class="sd">        filename : str</span>
+<span class="sd">            Имя файла для сохранения (например, &#39;export.csv&#39;).</span>
+<span class="sd">        fieldnames : list of str</span>
+<span class="sd">            Список названий колонок в правильном порядке.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            True если экспорт выполнен успешно, False при возникновении ошибки.</span>
+<span class="sd">        </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; data = [{&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, {&#39;name&#39;: &#39;Alice&#39;, &#39;age&#39;: 30}]</span>
+<span class="sd">        &gt;&gt;&gt; fieldnames = [&#39;name&#39;, &#39;age&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; export_to_csv(data, &#39;people.csv&#39;, fieldnames)</span>
+<span class="sd">        True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">fieldnames</span><span class="p">)</span>
+                <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+                <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ошибка при экспорте в CSV: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+    
+<div class="viewcode-block" id="DatabaseManager.import_from_csv">
+<a class="viewcode-back" href="../db.html#db.DatabaseManager.import_from_csv">[документация]</a>
+    <span class="k">def</span> <span class="nf">import_from_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Импортирует данные из CSV файла в указанную модель данных.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str</span>
+<span class="sd">            Имя файла для импорта (например, &#39;import.csv&#39;).</span>
+<span class="sd">        model : BaseModel</span>
+<span class="sd">            Модель данных для добавления элементов. Должна иметь метод add_item().</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+<span class="sd">            Количество успешно импортированных записей. Возвращает -1 при ошибке.</span>
+<span class="sd">        </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        FileNotFoundError</span>
+<span class="sd">            Если указанный файл не существует.</span>
+<span class="sd">        PermissionError</span>
+<span class="sd">            Если нет прав на чтение файла.</span>
+<span class="sd">        </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Метод использует метод add_item модели для валидации и добавления</span>
+<span class="sd">        каждого элемента данных.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Файл </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> не найден&quot;</span><span class="p">)</span>
+                
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+                <span class="n">imported_data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+            
+            <span class="n">success_count</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">imported_data</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+                    <span class="n">success_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            
+            <span class="k">return</span> <span class="n">success_count</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ошибка при импорте из CSV: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></div>
+
+    
+<div class="viewcode-block" id="DatabaseManager.export_to_json">
+<a class="viewcode-back" href="../db.html#db.DatabaseManager.export_to_json">[документация]</a>
+    <span class="k">def</span> <span class="nf">export_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Экспортирует данные в JSON файл.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data : list or dict</span>
+<span class="sd">            Данные для экспорта. Могут быть списком словарей или словарем.</span>
+<span class="sd">        filename : str</span>
+<span class="sd">            Имя файла для сохранения (например, &#39;export.json&#39;).</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            True если экспорт выполнен успешно, False при возникновении ошибки.</span>
+<span class="sd">        </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Файл сохраняется с отступами (indent=4) и поддержкой Unicode</span>
+<span class="sd">        (ensure_ascii=False).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ошибка при экспорте в JSON: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+    
+<div class="viewcode-block" id="DatabaseManager.import_from_json">
+<a class="viewcode-back" href="../db.html#db.DatabaseManager.import_from_json">[документация]</a>
+    <span class="k">def</span> <span class="nf">import_from_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Импортирует данные из JSON файла в указанную модель данных.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str</span>
+<span class="sd">            Имя файла для импорта (например, &#39;import.json&#39;).</span>
+<span class="sd">        model : BaseModel</span>
+<span class="sd">            Модель данных для добавления элементов. Должна иметь метод add_item().</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+<span class="sd">            Количество успешно импортированных записей. Возвращает -1 при ошибке.</span>
+<span class="sd">        </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        FileNotFoundError</span>
+<span class="sd">            Если указанный файл не существует.</span>
+<span class="sd">        JSONDecodeError</span>
+<span class="sd">            Если файл содержит некорректный JSON.</span>
+<span class="sd">        </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Метод ожидает, что JSON файл содержит массив объектов или объект,</span>
+<span class="sd">        который можно итерировать.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Файл </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> не найден&quot;</span><span class="p">)</span>
+                
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">imported_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+            
+            <span class="n">success_count</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="c1"># Обрабатываем как списки, так и одиночные объекты</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">imported_data</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">imported_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">imported_data</span><span class="p">]</span>
+                
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">imported_data</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+                    <span class="n">success_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            
+            <span class="k">return</span> <span class="n">success_count</span>
+        <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ошибка декодирования JSON: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ошибка при импорте из JSON: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права . </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

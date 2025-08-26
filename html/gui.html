@@ -1,0 +1,681 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gui module &mdash; документация Python </title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=372fde1a"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=29b1f277"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="models module" href="models.html" />
+    <link rel="prev" title="Модули" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Модули</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">gui module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gui.OrderApp"><code class="docutils literal notranslate"><span class="pre">OrderApp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.root"><code class="docutils literal notranslate"><span class="pre">OrderApp.root</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.customer_model"><code class="docutils literal notranslate"><span class="pre">OrderApp.customer_model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.product_model"><code class="docutils literal notranslate"><span class="pre">OrderApp.product_model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.order_model"><code class="docutils literal notranslate"><span class="pre">OrderApp.order_model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.db_manager"><code class="docutils literal notranslate"><span class="pre">OrderApp.db_manager</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.analyzer"><code class="docutils literal notranslate"><span class="pre">OrderApp.analyzer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.current_order_total"><code class="docutils literal notranslate"><span class="pre">OrderApp.current_order_total</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.order_items"><code class="docutils literal notranslate"><span class="pre">OrderApp.order_items</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.selected_customer_index"><code class="docutils literal notranslate"><span class="pre">OrderApp.selected_customer_index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.selected_product_index"><code class="docutils literal notranslate"><span class="pre">OrderApp.selected_product_index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.selected_order_item_index"><code class="docutils literal notranslate"><span class="pre">OrderApp.selected_order_item_index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.filtered_customers"><code class="docutils literal notranslate"><span class="pre">OrderApp.filtered_customers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.filtered_products"><code class="docutils literal notranslate"><span class="pre">OrderApp.filtered_products</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.__init__"><code class="docutils literal notranslate"><span class="pre">OrderApp.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.add_customer"><code class="docutils literal notranslate"><span class="pre">OrderApp.add_customer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.add_product"><code class="docutils literal notranslate"><span class="pre">OrderApp.add_product()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.add_product_to_order"><code class="docutils literal notranslate"><span class="pre">OrderApp.add_product_to_order()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.apply_sorting"><code class="docutils literal notranslate"><span class="pre">OrderApp.apply_sorting()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.calculate_sum"><code class="docutils literal notranslate"><span class="pre">OrderApp.calculate_sum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.clear_customer_search"><code class="docutils literal notranslate"><span class="pre">OrderApp.clear_customer_search()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.clear_product_search"><code class="docutils literal notranslate"><span class="pre">OrderApp.clear_product_search()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.create_order"><code class="docutils literal notranslate"><span class="pre">OrderApp.create_order()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.delete_customer"><code class="docutils literal notranslate"><span class="pre">OrderApp.delete_customer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.delete_product"><code class="docutils literal notranslate"><span class="pre">OrderApp.delete_product()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.export_customers"><code class="docutils literal notranslate"><span class="pre">OrderApp.export_customers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.export_customers_csv"><code class="docutils literal notranslate"><span class="pre">OrderApp.export_customers_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.export_customers_json"><code class="docutils literal notranslate"><span class="pre">OrderApp.export_customers_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.export_products"><code class="docutils literal notranslate"><span class="pre">OrderApp.export_products()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.export_products_csv"><code class="docutils literal notranslate"><span class="pre">OrderApp.export_products_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.export_products_json"><code class="docutils literal notranslate"><span class="pre">OrderApp.export_products_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.filter_customers"><code class="docutils literal notranslate"><span class="pre">OrderApp.filter_customers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.filter_products"><code class="docutils literal notranslate"><span class="pre">OrderApp.filter_products()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.import_customers"><code class="docutils literal notranslate"><span class="pre">OrderApp.import_customers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.import_customers_csv"><code class="docutils literal notranslate"><span class="pre">OrderApp.import_customers_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.import_customers_json"><code class="docutils literal notranslate"><span class="pre">OrderApp.import_customers_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.import_products"><code class="docutils literal notranslate"><span class="pre">OrderApp.import_products()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.import_products_csv"><code class="docutils literal notranslate"><span class="pre">OrderApp.import_products_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.import_products_json"><code class="docutils literal notranslate"><span class="pre">OrderApp.import_products_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.init_analytics_tab"><code class="docutils literal notranslate"><span class="pre">OrderApp.init_analytics_tab()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.init_customers_tab"><code class="docutils literal notranslate"><span class="pre">OrderApp.init_customers_tab()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.init_empty_charts"><code class="docutils literal notranslate"><span class="pre">OrderApp.init_empty_charts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.init_history_tab"><code class="docutils literal notranslate"><span class="pre">OrderApp.init_history_tab()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.init_order_tab"><code class="docutils literal notranslate"><span class="pre">OrderApp.init_order_tab()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.init_products_tab"><code class="docutils literal notranslate"><span class="pre">OrderApp.init_products_tab()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.on_customer_select"><code class="docutils literal notranslate"><span class="pre">OrderApp.on_customer_select()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.on_customer_select_in_table"><code class="docutils literal notranslate"><span class="pre">OrderApp.on_customer_select_in_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.on_order_item_select"><code class="docutils literal notranslate"><span class="pre">OrderApp.on_order_item_select()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.on_product_select"><code class="docutils literal notranslate"><span class="pre">OrderApp.on_product_select()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.on_product_select_in_table"><code class="docutils literal notranslate"><span class="pre">OrderApp.on_product_select_in_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.open_order_details"><code class="docutils literal notranslate"><span class="pre">OrderApp.open_order_details()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.refresh_customers"><code class="docutils literal notranslate"><span class="pre">OrderApp.refresh_customers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.refresh_history"><code class="docutils literal notranslate"><span class="pre">OrderApp.refresh_history()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.refresh_products"><code class="docutils literal notranslate"><span class="pre">OrderApp.refresh_products()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.remove_product_from_order"><code class="docutils literal notranslate"><span class="pre">OrderApp.remove_product_from_order()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.show_customer_network"><code class="docutils literal notranslate"><span class="pre">OrderApp.show_customer_network()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.show_orders_dynamics"><code class="docutils literal notranslate"><span class="pre">OrderApp.show_orders_dynamics()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.show_top_customers"><code class="docutils literal notranslate"><span class="pre">OrderApp.show_top_customers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.update_all_charts"><code class="docutils literal notranslate"><span class="pre">OrderApp.update_all_charts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.update_customer_info"><code class="docutils literal notranslate"><span class="pre">OrderApp.update_customer_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.update_customer_listbox"><code class="docutils literal notranslate"><span class="pre">OrderApp.update_customer_listbox()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.update_product_listbox"><code class="docutils literal notranslate"><span class="pre">OrderApp.update_product_listbox()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.OrderApp.update_product_price"><code class="docutils literal notranslate"><span class="pre">OrderApp.update_product_price()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html">models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="db.html">db module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html">analysis module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Установка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Использование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Модули</a></li>
+      <li class="breadcrumb-item active">gui module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/gui.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-gui">
+<span id="id1"></span><span id="gui-module"></span><h1>gui module<a class="headerlink" href="#module-gui" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="gui.OrderApp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gui.</span></span><span class="sig-name descname"><span class="pre">OrderApp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Основной класс приложения для управления заказами.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gui.OrderApp.root">
+<span class="sig-name descname"><span class="pre">root</span></span><a class="headerlink" href="#gui.OrderApp.root" title="Link to this definition"></a></dt>
+<dd><p>Главное окно приложения</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tk.Tk</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gui.OrderApp.customer_model">
+<span class="sig-name descname"><span class="pre">customer_model</span></span><a class="headerlink" href="#gui.OrderApp.customer_model" title="Link to this definition"></a></dt>
+<dd><p>Модель для работы с покупателями</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="models.html#models.CustomerModel" title="models.CustomerModel">CustomerModel</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gui.OrderApp.product_model">
+<span class="sig-name descname"><span class="pre">product_model</span></span><a class="headerlink" href="#gui.OrderApp.product_model" title="Link to this definition"></a></dt>
+<dd><p>Модель для работы с товарами</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="models.html#models.ProductModel" title="models.ProductModel">ProductModel</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gui.OrderApp.order_model">
+<span class="sig-name descname"><span class="pre">order_model</span></span><a class="headerlink" href="#gui.OrderApp.order_model" title="Link to this definition"></a></dt>
+<dd><p>Модель для работы с заказами</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="models.html#models.OrderModel" title="models.OrderModel">OrderModel</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gui.OrderApp.db_manager">
+<span class="sig-name descname"><span class="pre">db_manager</span></span><a class="headerlink" href="#gui.OrderApp.db_manager" title="Link to this definition"></a></dt>
+<dd><p>Менеджер базы данных</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="db.html#db.DatabaseManager" title="db.DatabaseManager">DatabaseManager</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gui.OrderApp.analyzer">
+<span class="sig-name descname"><span class="pre">analyzer</span></span><a class="headerlink" href="#gui.OrderApp.analyzer" title="Link to this definition"></a></dt>
+<dd><p>Анализатор данных для визуализации</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="analysis.html#analysis.DataAnalyzer" title="analysis.DataAnalyzer">DataAnalyzer</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gui.OrderApp.current_order_total">
+<span class="sig-name descname"><span class="pre">current_order_total</span></span><a class="headerlink" href="#gui.OrderApp.current_order_total" title="Link to this definition"></a></dt>
+<dd><p>Текущая общая сумма заказа</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gui.OrderApp.order_items">
+<span class="sig-name descname"><span class="pre">order_items</span></span><a class="headerlink" href="#gui.OrderApp.order_items" title="Link to this definition"></a></dt>
+<dd><p>Список товаров в текущем заказе</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gui.OrderApp.selected_customer_index">
+<span class="sig-name descname"><span class="pre">selected_customer_index</span></span><a class="headerlink" href="#gui.OrderApp.selected_customer_index" title="Link to this definition"></a></dt>
+<dd><p>Индекс выбранного покупателя</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gui.OrderApp.selected_product_index">
+<span class="sig-name descname"><span class="pre">selected_product_index</span></span><a class="headerlink" href="#gui.OrderApp.selected_product_index" title="Link to this definition"></a></dt>
+<dd><p>Индекс выбранного товара</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gui.OrderApp.selected_order_item_index">
+<span class="sig-name descname"><span class="pre">selected_order_item_index</span></span><a class="headerlink" href="#gui.OrderApp.selected_order_item_index" title="Link to this definition"></a></dt>
+<dd><p>Индекс выбранного элемента заказа</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gui.OrderApp.filtered_customers">
+<span class="sig-name descname"><span class="pre">filtered_customers</span></span><a class="headerlink" href="#gui.OrderApp.filtered_customers" title="Link to this definition"></a></dt>
+<dd><p>Отфильтрованный список покупателей</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gui.OrderApp.filtered_products">
+<span class="sig-name descname"><span class="pre">filtered_products</span></span><a class="headerlink" href="#gui.OrderApp.filtered_products" title="Link to this definition"></a></dt>
+<dd><p>Отфильтрованный список товаров</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.__init__"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.__init__" title="Link to this definition"></a></dt>
+<dd><p>Инициализация главного окна приложения.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>root</strong> (<em>tk.Tk</em>) – Главное окно приложения</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.add_customer">
+<span class="sig-name descname"><span class="pre">add_customer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.add_customer"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.add_customer" title="Link to this definition"></a></dt>
+<dd><p>Добавление нового покупателя.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.add_product">
+<span class="sig-name descname"><span class="pre">add_product</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.add_product"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.add_product" title="Link to this definition"></a></dt>
+<dd><p>Добавление нового товара.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.add_product_to_order">
+<span class="sig-name descname"><span class="pre">add_product_to_order</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.add_product_to_order"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.add_product_to_order" title="Link to this definition"></a></dt>
+<dd><p>Добавление товара в текущий заказ.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.apply_sorting">
+<span class="sig-name descname"><span class="pre">apply_sorting</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.apply_sorting"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.apply_sorting" title="Link to this definition"></a></dt>
+<dd><p>Применение сортировки к истории заказов.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.calculate_sum">
+<span class="sig-name descname"><span class="pre">calculate_sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.calculate_sum"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.calculate_sum" title="Link to this definition"></a></dt>
+<dd><p>Расчет суммы для выбранного товара и количества.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tk.Event</em><em>, </em><em>optional</em>) – Событие изменения (по умолчанию None)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.clear_customer_search">
+<span class="sig-name descname"><span class="pre">clear_customer_search</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.clear_customer_search"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.clear_customer_search" title="Link to this definition"></a></dt>
+<dd><p>Очистка поля поиска покупателей.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.clear_product_search">
+<span class="sig-name descname"><span class="pre">clear_product_search</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.clear_product_search"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.clear_product_search" title="Link to this definition"></a></dt>
+<dd><p>Очистка поля поиска товаров.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.create_order">
+<span class="sig-name descname"><span class="pre">create_order</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.create_order"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.create_order" title="Link to this definition"></a></dt>
+<dd><p>Создание и сохранение заказа.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.delete_customer">
+<span class="sig-name descname"><span class="pre">delete_customer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.delete_customer"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.delete_customer" title="Link to this definition"></a></dt>
+<dd><p>Удаление выбранного покупателя.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.delete_product">
+<span class="sig-name descname"><span class="pre">delete_product</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.delete_product"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.delete_product" title="Link to this definition"></a></dt>
+<dd><p>Удаление выбранного товара.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.export_customers">
+<span class="sig-name descname"><span class="pre">export_customers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.export_customers"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.export_customers" title="Link to this definition"></a></dt>
+<dd><p>Экспорт покупателей с выбором формата (CSV/JSON).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.export_customers_csv">
+<span class="sig-name descname"><span class="pre">export_customers_csv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.export_customers_csv"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.export_customers_csv" title="Link to this definition"></a></dt>
+<dd><p>Экспорт покупателей в CSV формат.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.export_customers_json">
+<span class="sig-name descname"><span class="pre">export_customers_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.export_customers_json"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.export_customers_json" title="Link to this definition"></a></dt>
+<dd><p>Экспорт покупателей в JSON формат.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.export_products">
+<span class="sig-name descname"><span class="pre">export_products</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.export_products"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.export_products" title="Link to this definition"></a></dt>
+<dd><p>Экспорт товаров с выбором формата (CSV/JSON).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.export_products_csv">
+<span class="sig-name descname"><span class="pre">export_products_csv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.export_products_csv"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.export_products_csv" title="Link to this definition"></a></dt>
+<dd><p>Экспорт товаров в CSV формат.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.export_products_json">
+<span class="sig-name descname"><span class="pre">export_products_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.export_products_json"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.export_products_json" title="Link to this definition"></a></dt>
+<dd><p>Экспорт товаров в JSON формат.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.filter_customers">
+<span class="sig-name descname"><span class="pre">filter_customers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.filter_customers"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.filter_customers" title="Link to this definition"></a></dt>
+<dd><p>Фильтрация списка покупателей по поисковому запросу.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>*args</strong> – Аргументы для совместимости с trace</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.filter_products">
+<span class="sig-name descname"><span class="pre">filter_products</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.filter_products"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.filter_products" title="Link to this definition"></a></dt>
+<dd><p>Фильтрация списка товаров по поисковому запросу.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>*args</strong> – Аргументы для совместимости с trace</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.import_customers">
+<span class="sig-name descname"><span class="pre">import_customers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.import_customers"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.import_customers" title="Link to this definition"></a></dt>
+<dd><p>Импорт покупателей с выбором формата (CSV/JSON).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.import_customers_csv">
+<span class="sig-name descname"><span class="pre">import_customers_csv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.import_customers_csv"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.import_customers_csv" title="Link to this definition"></a></dt>
+<dd><p>Импорт покупателей из CSV файла.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.import_customers_json">
+<span class="sig-name descname"><span class="pre">import_customers_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.import_customers_json"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.import_customers_json" title="Link to this definition"></a></dt>
+<dd><p>Импорт покупателей из JSON файла.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.import_products">
+<span class="sig-name descname"><span class="pre">import_products</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.import_products"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.import_products" title="Link to this definition"></a></dt>
+<dd><p>Импорт товаров с выбором формата (CSV/JSON).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.import_products_csv">
+<span class="sig-name descname"><span class="pre">import_products_csv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.import_products_csv"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.import_products_csv" title="Link to this definition"></a></dt>
+<dd><p>Импорт товаров из CSV файла.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.import_products_json">
+<span class="sig-name descname"><span class="pre">import_products_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.import_products_json"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.import_products_json" title="Link to this definition"></a></dt>
+<dd><p>Импорт товаров из JSON файла.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.init_analytics_tab">
+<span class="sig-name descname"><span class="pre">init_analytics_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.init_analytics_tab"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.init_analytics_tab" title="Link to this definition"></a></dt>
+<dd><p>Инициализация вкладки аналитики и визуализации.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.init_customers_tab">
+<span class="sig-name descname"><span class="pre">init_customers_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.init_customers_tab"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.init_customers_tab" title="Link to this definition"></a></dt>
+<dd><p>Инициализация вкладки управления покупателями.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.init_empty_charts">
+<span class="sig-name descname"><span class="pre">init_empty_charts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.init_empty_charts"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.init_empty_charts" title="Link to this definition"></a></dt>
+<dd><p>Инициализация пустых графиков с заглушками.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.init_history_tab">
+<span class="sig-name descname"><span class="pre">init_history_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.init_history_tab"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.init_history_tab" title="Link to this definition"></a></dt>
+<dd><p>Инициализация вкладки истории заказов.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.init_order_tab">
+<span class="sig-name descname"><span class="pre">init_order_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.init_order_tab"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.init_order_tab" title="Link to this definition"></a></dt>
+<dd><p>Инициализация вкладки создания заказов.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.init_products_tab">
+<span class="sig-name descname"><span class="pre">init_products_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.init_products_tab"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.init_products_tab" title="Link to this definition"></a></dt>
+<dd><p>Инициализация вкладки управления товарами.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.on_customer_select">
+<span class="sig-name descname"><span class="pre">on_customer_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.on_customer_select"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.on_customer_select" title="Link to this definition"></a></dt>
+<dd><p>Обработчик выбора покупателя из списка.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tk.Event</em>) – Событие выбора</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.on_customer_select_in_table">
+<span class="sig-name descname"><span class="pre">on_customer_select_in_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.on_customer_select_in_table"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.on_customer_select_in_table" title="Link to this definition"></a></dt>
+<dd><p>Обработчик выбора покупателя в таблице.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tk.Event</em>) – Событие выбора</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.on_order_item_select">
+<span class="sig-name descname"><span class="pre">on_order_item_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.on_order_item_select"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.on_order_item_select" title="Link to this definition"></a></dt>
+<dd><p>Обработчик выбора товара в таблице заказа.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tk.Event</em>) – Событие выбора</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.on_product_select">
+<span class="sig-name descname"><span class="pre">on_product_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.on_product_select"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.on_product_select" title="Link to this definition"></a></dt>
+<dd><p>Обработчик выбора товара из списка.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tk.Event</em>) – Событие выбора</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.on_product_select_in_table">
+<span class="sig-name descname"><span class="pre">on_product_select_in_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.on_product_select_in_table"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.on_product_select_in_table" title="Link to this definition"></a></dt>
+<dd><p>Обработчик выбора товара в таблице.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tk.Event</em>) – Событие выбора</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.open_order_details">
+<span class="sig-name descname"><span class="pre">open_order_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.open_order_details"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.open_order_details" title="Link to this definition"></a></dt>
+<dd><p>Открытие окна с деталями заказа.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tk.Event</em>) – Событие двойного клика</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.refresh_customers">
+<span class="sig-name descname"><span class="pre">refresh_customers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.refresh_customers"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.refresh_customers" title="Link to this definition"></a></dt>
+<dd><p>Обновление таблицы покупателей.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.refresh_history">
+<span class="sig-name descname"><span class="pre">refresh_history</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.refresh_history"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.refresh_history" title="Link to this definition"></a></dt>
+<dd><p>Обновление истории заказов в таблице.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.refresh_products">
+<span class="sig-name descname"><span class="pre">refresh_products</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.refresh_products"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.refresh_products" title="Link to this definition"></a></dt>
+<dd><p>Обновление таблицы товаров.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.remove_product_from_order">
+<span class="sig-name descname"><span class="pre">remove_product_from_order</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.remove_product_from_order"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.remove_product_from_order" title="Link to this definition"></a></dt>
+<dd><p>Удаление товара из текущего заказа.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.show_customer_network">
+<span class="sig-name descname"><span class="pre">show_customer_network</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.show_customer_network"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.show_customer_network" title="Link to this definition"></a></dt>
+<dd><p>Отображение графа связей между клиентами.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.show_orders_dynamics">
+<span class="sig-name descname"><span class="pre">show_orders_dynamics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.show_orders_dynamics"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.show_orders_dynamics" title="Link to this definition"></a></dt>
+<dd><p>Отображение графика динамики заказов по времени.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.show_top_customers">
+<span class="sig-name descname"><span class="pre">show_top_customers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.show_top_customers"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.show_top_customers" title="Link to this definition"></a></dt>
+<dd><p>Отображение графика топ-5 клиентов по сумме заказов.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.update_all_charts">
+<span class="sig-name descname"><span class="pre">update_all_charts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.update_all_charts"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.update_all_charts" title="Link to this definition"></a></dt>
+<dd><p>Обновление всех графиков аналитики.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.update_customer_info">
+<span class="sig-name descname"><span class="pre">update_customer_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.update_customer_info"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.update_customer_info" title="Link to this definition"></a></dt>
+<dd><p>Обновление информации о выбранном покупателе.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.update_customer_listbox">
+<span class="sig-name descname"><span class="pre">update_customer_listbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.update_customer_listbox"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.update_customer_listbox" title="Link to this definition"></a></dt>
+<dd><p>Обновление списка покупателей с учетом фильтрации.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.update_product_listbox">
+<span class="sig-name descname"><span class="pre">update_product_listbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.update_product_listbox"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.update_product_listbox" title="Link to this definition"></a></dt>
+<dd><p>Обновление списка товаров с учетом фильтрации.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.OrderApp.update_product_price">
+<span class="sig-name descname"><span class="pre">update_product_price</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui.html#OrderApp.update_product_price"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#gui.OrderApp.update_product_price" title="Link to this definition"></a></dt>
+<dd><p>Обновление цены выбранного товара.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="modules.html" class="btn btn-neutral float-left" title="Модули" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="models.html" class="btn btn-neutral float-right" title="models module" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права . </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

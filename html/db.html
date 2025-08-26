@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>db module &mdash; документация Python </title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=372fde1a"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=29b1f277"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="analysis module" href="analysis.html" />
+    <link rel="prev" title="models module" href="models.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Модули</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="gui.html">gui module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html">models module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">db module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#db.DatabaseManager"><code class="docutils literal notranslate"><span class="pre">DatabaseManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#db.DatabaseManager.customer_model"><code class="docutils literal notranslate"><span class="pre">DatabaseManager.customer_model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#db.DatabaseManager.product_model"><code class="docutils literal notranslate"><span class="pre">DatabaseManager.product_model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#db.DatabaseManager.order_model"><code class="docutils literal notranslate"><span class="pre">DatabaseManager.order_model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#db.DatabaseManager.create_files_if_not_exist"><code class="docutils literal notranslate"><span class="pre">DatabaseManager.create_files_if_not_exist()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#db.DatabaseManager.export_to_csv"><code class="docutils literal notranslate"><span class="pre">DatabaseManager.export_to_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#db.DatabaseManager.export_to_json"><code class="docutils literal notranslate"><span class="pre">DatabaseManager.export_to_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#db.DatabaseManager.import_from_csv"><code class="docutils literal notranslate"><span class="pre">DatabaseManager.import_from_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#db.DatabaseManager.import_from_json"><code class="docutils literal notranslate"><span class="pre">DatabaseManager.import_from_json()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html">analysis module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Установка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Использование</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Модули</a></li>
+      <li class="breadcrumb-item active">db module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/db.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-db">
+<span id="id1"></span><span id="db-module"></span><h1>db module<a class="headerlink" href="#module-db" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="db.DatabaseManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">db.</span></span><span class="sig-name descname"><span class="pre">DatabaseManager</span></span><a class="reference internal" href="_modules/db.html#DatabaseManager"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#db.DatabaseManager" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Менеджер базы данных для работы с CSV и JSON файлами.</p>
+<p>Обеспечивает импорт/экспорт данных, а также создание необходимых файлов
+для хранения информации о клиентах, товарах и заказах.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="db.DatabaseManager.customer_model">
+<span class="sig-name descname"><span class="pre">customer_model</span></span><a class="headerlink" href="#db.DatabaseManager.customer_model" title="Link to this definition"></a></dt>
+<dd><p>Модель данных клиентов</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="models.html#models.CustomerModel" title="models.CustomerModel">CustomerModel</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="db.DatabaseManager.product_model">
+<span class="sig-name descname"><span class="pre">product_model</span></span><a class="headerlink" href="#db.DatabaseManager.product_model" title="Link to this definition"></a></dt>
+<dd><p>Модель данных товаров</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="models.html#models.ProductModel" title="models.ProductModel">ProductModel</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="db.DatabaseManager.order_model">
+<span class="sig-name descname"><span class="pre">order_model</span></span><a class="headerlink" href="#db.DatabaseManager.order_model" title="Link to this definition"></a></dt>
+<dd><p>Модель данных заказов</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="models.html#models.OrderModel" title="models.OrderModel">OrderModel</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="db.DatabaseManager.create_files_if_not_exist">
+<span class="sig-name descname"><span class="pre">create_files_if_not_exist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/db.html#DatabaseManager.create_files_if_not_exist"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#db.DatabaseManager.create_files_if_not_exist" title="Link to this definition"></a></dt>
+<dd><p>Создает необходимые файлы CSV, если они не существуют.</p>
+<p>Проверяет наличие файлов customers.csv, products.csv, orders.csv
+и order_items.csv. Если какой-либо файл отсутствует, вызывает
+метод save_data соответствующей модели для создания файла
+с заголовками колонок.</p>
+<p class="rubric">Заметки</p>
+<p>Метод должен вызываться при инициализации приложения для
+обеспечения наличия всех необходимых файлов данных.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="db.DatabaseManager.export_to_csv">
+<span class="sig-name descname"><span class="pre">export_to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fieldnames</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/db.html#DatabaseManager.export_to_csv"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#db.DatabaseManager.export_to_csv" title="Link to this definition"></a></dt>
+<dd><p>Экспортирует данные в CSV файл.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>list</em><em> of </em><em>dict</em>) – Список словарей с данными для экспорта. Каждый словарь представляет
+одну строку данных, где ключи соответствуют названиям колонок.</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – Имя файла для сохранения (например, „export.csv“).</p></li>
+<li><p><strong>fieldnames</strong> (<em>list</em><em> of </em><em>str</em>) – Список названий колонок в правильном порядке.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>True если экспорт выполнен успешно, False при возникновении ошибки.</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Примеры</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fieldnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">export_to_csv</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;people.csv&#39;</span><span class="p">,</span> <span class="n">fieldnames</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="db.DatabaseManager.export_to_json">
+<span class="sig-name descname"><span class="pre">export_to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/db.html#DatabaseManager.export_to_json"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#db.DatabaseManager.export_to_json" title="Link to this definition"></a></dt>
+<dd><p>Экспортирует данные в JSON файл.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>list</em><em> or </em><em>dict</em>) – Данные для экспорта. Могут быть списком словарей или словарем.</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – Имя файла для сохранения (например, „export.json“).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>True если экспорт выполнен успешно, False при возникновении ошибки.</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Заметки</p>
+<p>Файл сохраняется с отступами (indent=4) и поддержкой Unicode
+(ensure_ascii=False).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="db.DatabaseManager.import_from_csv">
+<span class="sig-name descname"><span class="pre">import_from_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/db.html#DatabaseManager.import_from_csv"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#db.DatabaseManager.import_from_csv" title="Link to this definition"></a></dt>
+<dd><p>Импортирует данные из CSV файла в указанную модель данных.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – Имя файла для импорта (например, „import.csv“).</p></li>
+<li><p><strong>model</strong> (<a class="reference internal" href="models.html#models.BaseModel" title="models.BaseModel"><em>BaseModel</em></a>) – Модель данных для добавления элементов. Должна иметь метод add_item().</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Количество успешно импортированных записей. Возвращает -1 при ошибке.</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Исключение<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>FileNotFoundError</strong> – Если указанный файл не существует.</p></li>
+<li><p><strong>PermissionError</strong> – Если нет прав на чтение файла.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Заметки</p>
+<p>Метод использует метод add_item модели для валидации и добавления
+каждого элемента данных.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="db.DatabaseManager.import_from_json">
+<span class="sig-name descname"><span class="pre">import_from_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/db.html#DatabaseManager.import_from_json"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#db.DatabaseManager.import_from_json" title="Link to this definition"></a></dt>
+<dd><p>Импортирует данные из JSON файла в указанную модель данных.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – Имя файла для импорта (например, „import.json“).</p></li>
+<li><p><strong>model</strong> (<a class="reference internal" href="models.html#models.BaseModel" title="models.BaseModel"><em>BaseModel</em></a>) – Модель данных для добавления элементов. Должна иметь метод add_item().</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Количество успешно импортированных записей. Возвращает -1 при ошибке.</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Исключение<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>FileNotFoundError</strong> – Если указанный файл не существует.</p></li>
+<li><p><strong>JSONDecodeError</strong> – Если файл содержит некорректный JSON.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Заметки</p>
+<p>Метод ожидает, что JSON файл содержит массив объектов или объект,
+который можно итерировать.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="models.html" class="btn btn-neutral float-left" title="models module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="analysis.html" class="btn btn-neutral float-right" title="analysis module" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права . </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 pandas>=1.3.0
 matplotlib>=3.5.0
 seaborn>=0.11.0
 networkx>=2.6.0
 sphinx>=4.0.0
+=======
+pandas>=1.3.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+networkx>=2.6.0
+sphinx>=4.0.0
+>>>>>>> 3e84103c2d42b90c7f0d0c382a243a515fcbdfdc
 sphinx-rtd-theme>=1.0.0
