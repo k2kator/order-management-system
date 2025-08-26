@@ -19,6 +19,7 @@ git clone https://github.com/k2kator/order-management-system.git
 
 запускайте main.py
 =======
+## Документация расположена в папке html (index.html)
 
 >>>>>>> 3e84103c2d42b90c7f0d0c382a243a515fcbdfdc
 cd order-management-system
