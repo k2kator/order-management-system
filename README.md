@@ -15,7 +15,7 @@ Python приложение для управления заказами с гр
 
 1. Копируйте репозиторий:
 
-git clone https://github.com/k2kator/order-management-system.git
+git copy https://github.com/k2kator/order-management-system.git
 
 запускайте main.py
 =======
