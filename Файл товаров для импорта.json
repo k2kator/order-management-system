@@ -1,0 +1,170 @@
+[
+    {
+        "id": "1",
+        "name": "Смартфон Apple iPhone 15 Pro Max",
+        "price": "119990",
+        "unit": "шт."
+    },
+    {
+        "id": "2",
+        "name": "Планшет Samsung Galaxy Tab A",
+        "price": "19990",
+        "unit": "шт."
+    },
+    {
+        "id": "3",
+        "name": "Кофемашина Delonghi ECAM",
+        "price": "45990",
+        "unit": "шт."
+    },
+    {
+        "id": "4",
+        "name": "Пылесос Dyson V11 Absolute",
+        "price": "59990",
+        "unit": "шт."
+    },
+    {
+        "id": "5",
+        "name": "Фитнес-трекер Xiaomi Mi Band",
+        "price": "2990",
+        "unit": "шт."
+    },
+    {
+        "id": "7",
+        "name": "Электронная книга Amazon Kindle Oasis",
+        "price": "29990",
+        "unit": "шт."
+    },
+    {
+        "id": "8",
+        "name": "Велосипед Stels Navigator",
+        "price": "24990",
+        "unit": "шт."
+    },
+    {
+        "id": "9",
+        "name": "Утюг Tefal FV4810F0",
+        "price": "5990",
+        "unit": "шт."
+    },
+    {
+        "id": "10",
+        "name": "Компьютерная мышь Logitech MX Master 3S",
+        "price": "11990",
+        "unit": "шт."
+    },
+    {
+        "id": "11",
+        "name": "Шины Michelin X-Ice Snow",
+        "price": "8990",
+        "unit": "шт."
+    },
+    {
+        "id": "12",
+        "name": "Чайник Bosch TWK 8601 UE",
+        "price": "3990",
+        "unit": "шт."
+    },
+    {
+        "id": "13",
+        "name": "Настольные часы Casio",
+        "price": "1990",
+        "unit": "шт."
+    },
+    {
+        "id": "14",
+        "name": "Внешний жесткий диск Seagate",
+        "price": "6990",
+        "unit": "шт."
+    },
+    {
+        "id": "15",
+        "name": "Набор посуды Berghoff Prestige",
+        "price": "14990",
+        "unit": "шт."
+    },
+    {
+        "id": "16",
+        "name": "Мультиварка Redmond RMC-M90",
+        "price": "12990",
+        "unit": "шт."
+    },
+    {
+        "id": "17",
+        "name": "Фотоаппарат Canon EOS M50 Mark II",
+        "price": "69990",
+        "unit": "шт."
+    },
+    {
+        "id": "18",
+        "name": "Гироскутер Hoverbot",
+        "price": "19990",
+        "unit": "шт."
+    },
+    {
+        "id": "19",
+        "name": "Термопот Polaris PWP 4005CGLT",
+        "price": "4990",
+        "unit": "шт."
+    },
+    {
+        "id": "20",
+        "name": "Беспроводные наушники Sony WF-1000XM4",
+        "price": "24990",
+        "unit": "шт."
+    },
+    {
+        "id": "21",
+        "name": "Обогреватель Ballu BIHP-WW-1500H",
+        "price": "7990",
+        "unit": "шт."
+    },
+    {
+        "id": "22",
+        "name": "Детская коляска Inglesina",
+        "price": "39990",
+        "unit": "шт."
+    },
+    {
+        "id": "23",
+        "name": "Увлажнитель воздуха Philips HU4803/60",
+        "price": "12990",
+        "unit": "шт."
+    },
+    {
+        "id": "24",
+        "name": "Телевизор LG OLED C1",
+        "price": "159990",
+        "unit": "шт."
+    },
+    {
+        "id": "25",
+        "name": "Игровая приставка PlayStation 5",
+        "price": "59990",
+        "unit": "шт."
+    },
+    {
+        "id": "26",
+        "name": "Кухонный комбайн Kenwood KVL9100FPX",
+        "price": "39990",
+        "unit": "шт."
+    },
+    {
+        "id": "27",
+        "name": "Конструктор LEGO Star Wars",
+        "price": "19990",
+        "unit": "шт."
+    },
+    {
+        "id": "28",
+        "name": "Электробритва Braun Series 9",
+        "price": "24990",
+        "unit": "шт."
+    },
+    {
+        "id": "29",
+        "name": "Литература классическая",
+        "price": "990",
+        "unit": "шт."
+    }
+]

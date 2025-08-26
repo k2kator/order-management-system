@@ -1,0 +1,162 @@
+[
+    {
+        "id": "1",
+        "last_name": "Иванов",
+        "first_name": "Сергей",
+        "middle_name": "Александрович",
+        "phone": "+7 (912) 345-67-89",
+        "email": "ivanov-sergei@yandex.ru"
+    },
+    {
+        "id": "2",
+        "last_name": "Смирнова",
+        "first_name": "Ольга",
+        "middle_name": "Викторовна",
+        "phone": "+7 (903) 123-45-67",
+        "email": "smirnova-olga@mail.ru"
+    },
+    {
+        "id": "3",
+        "last_name": "Петров",
+        "first_name": "Дмитрий",
+        "middle_name": "Сергеевич",
+        "phone": "+7 (921) 987-65-43",
+        "email": "petrov-dmitry@gmail.ru"
+    },
+    {
+        "id": "4",
+        "last_name": "Кузнецова",
+        "first_name": "Анна",
+        "middle_name": "Михайловна",
+        "phone": "+7 (962) 567-89-01",
+        "email": "kuznetsova-anna@rambler.ru"
+    },
+    {
+        "id": "5",
+        "last_name": "Попов",
+        "first_name": "Алексей",
+        "middle_name": "Николаевич",
+        "phone": "+7 (953) 234-56-78",
+        "email": "popov-alexey@list.ru"
+    },
+    {
+        "id": "6",
+        "last_name": "Лебедева",
+        "first_name": "Екатерина",
+        "middle_name": "Дмитриевна",
+        "phone": "+7 (931) 876-54-32",
+        "email": "lebedeva-katerina@bk.ru"
+    },
+    {
+        "id": "7",
+        "last_name": "Волков",
+        "first_name": "Михаил",
+        "middle_name": "Юрьевич",
+        "phone": "+7 (942) 789-01-23",
+        "email": "volkov-mikhail@inbox.ru"
+    },
+    {
+        "id": "8",
+        "last_name": "Ковалёва",
+        "first_name": "Татьяна",
+        "middle_name": "Алексеевна",
+        "phone": "+7 (973) 456-78-90",
+        "email": "kovaleva-tatyana@tut.by"
+    },
+    {
+        "id": "9",
+        "last_name": "Морозов",
+        "first_name": "Андрей",
+        "middle_name": "Владимирович",
+        "phone": "+7 (981) 345-67-89",
+        "email": "morozov-andrey@mymail.ru"
+    },
+    {
+        "id": "10",
+        "last_name": "Иванова",
+        "first_name": "Наталья",
+        "middle_name": "Сергеевна",
+        "phone": "+7 (992) 123-45-67",
+        "email": "ivanova-natalya@protonmail.ru"
+    },
+    {
+        "id": "11",
+        "last_name": "Фёдоров",
+        "first_name": "Павел",
+        "middle_name": "Олегович",
+        "phone": "+7 (913) 987-65-43",
+        "email": "fedorov-pavel@zoho.ru"
+    },
+    {
+        "id": "12",
+        "last_name": "Сидорова",
+        "first_name": "Юлия",
+        "middle_name": "Александровна",
+        "phone": "+7 (901) 567-89-01",
+        "email": "sidorova-yuliya@me.ru"
+    },
+    {
+        "id": "13",
+        "last_name": "Голубев",
+        "first_name": "Максим",
+        "middle_name": "Денисович",
+        "phone": "+7 (923) 234-56-78",
+        "email": "golubev-maxim@outlook.ru"
+    },
+    {
+        "id": "14",
+        "last_name": "Романова",
+        "first_name": "Елена",
+        "middle_name": "Владимировна",
+        "phone": "+7 (961) 876-54-32",
+        "email": "romanova-elena@aol.ru"
+    },
+    {
+        "id": "15",
+        "last_name": "Белов",
+        "first_name": "Игорь",
+        "middle_name": "Анатольевич",
+        "phone": "+7 (951) 789-01-23",
+        "email": "belov-igor@icloud.ru"
+    },
+    {
+        "id": "16",
+        "last_name": "Васильева",
+        "first_name": "Виктория",
+        "middle_name": "Игоревна",
+        "phone": "+7 (932) 456-78-90",
+        "email": "vasileva-viktoria@gmx.ru"
+    },
+    {
+        "id": "17",
+        "last_name": "Соколов",
+        "first_name": "Роман",
+        "middle_name": "Алексеевич",
+        "phone": "+7 (941) 345-67-89",
+        "email": "sokolov-roman@fastmail.ru"
+    },
+    {
+        "id": "18",
+        "last_name": "Новикова",
+        "first_name": "Мария",
+        "middle_name": "Павловна",
+        "phone": "+7 (971) 123-45-67",
+        "email": "novikova-mariya@yandex.ru"
+    },
+    {
+        "id": "19",
+        "last_name": "Зайцев",
+        "first_name": "Евгений",
+        "middle_name": "Михайлович",
+        "phone": "+7 (982) 987-65-43",
+        "email": "zaytsev-evgeny@mail.ru"
+    },
+    {
+        "id": "20",
+        "last_name": "Орлова",
+        "first_name": "Дарья",
+        "middle_name": "Николаевна",
+        "phone": "+7 (991) 567-89-01",
+        "email": "orlova-darya@rambler.ru"
+    }
+]
