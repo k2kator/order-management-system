@@ -371,7 +371,7 @@ class OrderApp:
         self.filtered_customers = self.customer_model.get_all().copy()
         self.filtered_products = self.product_model.get_all().copy()
         
-        # Обновляем UI элементы
+        # Обновляем UI элементы на всех вкладках
         self.update_customer_listbox()
         self.update_product_listbox()
         
@@ -1528,9 +1528,10 @@ class OrderApp:
             self.customer_model.get_all(),
             [("JSON files", "*.json"), ("All files", "*.*")],
             "Сохранить покупателей как JSON",
-            self._export_json
+            self._export_json           
         )
-    
+        self._refresh_data()
+        
     def import_customers_json(self):
         """Импорт покупателей из JSON файла."""
         self._import_data(
